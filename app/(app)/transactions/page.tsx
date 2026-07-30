@@ -4,7 +4,6 @@ import { TransactionSearchAndFilters } from "@/components/transactions/filters"
 import { TransactionList } from "@/components/transactions/list"
 import { NewTransactionDialog } from "@/components/transactions/new"
 import { Pagination } from "@/components/transactions/pagination"
-import { Button } from "@/components/ui/button"
 import { getCurrentUser } from "@/lib/auth"
 import { getCategories } from "@/models/categories"
 import { getFields } from "@/models/fields"
@@ -47,15 +46,10 @@ export default async function TransactionsPage({ searchParams }: { searchParams:
         </h2>
         <div className="flex gap-2">
           <ExportTransactionsDialog fields={fields} categories={categories} projects={projects} total={total}>
-            <Button variant="outline">
-              <Download />
-              <span className="hidden md:block">Export</span>
-            </Button>
+            <Download /> <span className="hidden md:block">Export</span>
           </ExportTransactionsDialog>
           <NewTransactionDialog>
-            <Button>
-              <Plus /> <span className="hidden md:block">Add Transaction</span>
-            </Button>
+            <Plus /> <span className="hidden md:block">Add Transaction</span>
           </NewTransactionDialog>
         </div>
       </header>
@@ -77,10 +71,8 @@ export default async function TransactionsPage({ searchParams }: { searchParams:
                 <Upload /> Analyze New Invoice
               </UploadButton>
               <NewTransactionDialog>
-                <Button variant="outline">
-                  <Plus />
-                  Add Manually
-                </Button>
+                <Plus />
+                Add Manually
               </NewTransactionDialog>
             </div>
           </div>

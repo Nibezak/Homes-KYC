@@ -3,7 +3,7 @@ import { useState, useRef, useEffect, useCallback } from "react"
 import { FormSelectCurrency } from "@/components/forms/select-currency"
 import { FormInput } from "@/components/forms/simple"
 import { Button } from "@/components/ui/button"
-import { DEFAULT_CURRENCIES, DEFAULT_SETTINGS } from "@/models/defaults"
+import { DEFAULT_CURRENCIES, DEFAULT_SETTINGS } from "@/models/defaults-data"
 import { selfHostedGetStartedAction } from "../actions"
 import { FormSelect } from "@/components/forms/simple"
 import { PROVIDERS } from "@/lib/llm-providers"
@@ -68,6 +68,16 @@ export default function SelfHostedSetupFormClient({ defaultProvider, defaultApiK
           </a>
         </small>
       </div>
+      {selected.baseUrlName && (
+        <div>
+          <FormInput
+            title={`${selected.label} Base URL`}
+            name={selected.baseUrlName}
+            defaultValue={selected.defaultBaseUrl}
+            placeholder="http://localhost:11434/v1"
+          />
+        </div>
+      )}
       <Button type="submit" className="w-auto p-6">
         Get Started
       </Button>

@@ -2,9 +2,10 @@ import { withSentryConfig } from "@sentry/nextjs"
 import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true, // TODO: fixme
+  images: {
+    unoptimized: true, // FIXME: bug on prod, images always empty, investigate later
   },
+  serverExternalPackages: ["@prisma/adapter-pg"],
   experimental: {
     serverActions: {
       bodySizeLimit: "256mb",

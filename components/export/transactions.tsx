@@ -21,7 +21,7 @@ import { Category, Field, Project } from "@/prisma/client"
 import { formatDate } from "date-fns"
 import { useState } from "react"
 
-const deselectedFields = ["files", "text"]
+const deselectedFields = ["text"]
 
 export function ExportTransactionsDialog({
   fields,
@@ -76,7 +76,9 @@ export function ExportTransactionsDialog({
 
   return (
     <Dialog>
-      <DialogTrigger asChild>{children}</DialogTrigger>
+      <DialogTrigger asChild>
+        <Button variant="outline">{children}</Button>
+      </DialogTrigger>
       <DialogContent className="max-w-xl">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold">Export {total} Transactions</DialogTitle>
